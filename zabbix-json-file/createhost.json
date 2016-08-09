@@ -1,0 +1,23 @@
+{
+	"jsonrpc": "2.0",
+	"method": "host.create",
+	"params": {
+		"host": "Linux server",
+		"interfaces": [{
+			"type": 1,
+			"main": 1,
+			"useip": 1,
+			"ip": "192.168.3.1",
+			"dns": "",
+			"port": "10050"
+		}],
+		"groups": [{
+			"groupid": 2
+		}, {
+			"groupid": 4
+		}]
+
+	},
+	"auth": "510ccdf8eb945c6c1c0edcd1d5be786b",
+	"id": 1
+}

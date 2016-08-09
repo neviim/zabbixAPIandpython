@@ -1,0 +1,9 @@
+{
+    "jsonrpc": "2.0",
+    "method": "host.getobjects",
+    "params": {
+        "name": "tommy"
+    },
+    "auth": "510ccdf8eb945c6c1c0edcd1d5be786b",
+    "id": 1
+}

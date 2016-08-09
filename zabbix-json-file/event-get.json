@@ -1,0 +1,15 @@
+{
+	"jsonrpc": "2.0",
+	"method": "event.get",
+	"params": {
+		"output": "extend",
+		"hostids": "10105",
+		"source": "0",
+		"select_acknowledges": "extend",
+		"select_alerts": "extend",
+		"sortfield": "eventid",
+		"sortorder": "DESC"
+	},
+	"auth": "86e1845eb7677ba6959d036603e28c1f",
+	"id": 1
+}

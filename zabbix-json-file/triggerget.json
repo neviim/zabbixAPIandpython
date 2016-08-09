@@ -1,0 +1,12 @@
+{
+    "jsonrpc": "2.0",
+    "method": "trigger.getobjects",
+    "params": {
+	"withUnacknowledgedEvents" : "true",
+        "hostid": [
+            "10105"
+        ]
+    },
+    "auth": "86e1845eb7677ba6959d036603e28c1f",
+    "id": 1
+}

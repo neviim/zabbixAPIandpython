@@ -1,0 +1,10 @@
+{
+   "jsonrpc": "2.0",
+   "method": "hostgroup.get",
+   "params": {
+      "output": "extend",
+      "sortfield": "name"
+   },
+   "id": 1,
+   "auth": "510ccdf8eb945c6c1c0edcd1d5be786b"
+}

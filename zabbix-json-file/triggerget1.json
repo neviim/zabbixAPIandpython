@@ -1,0 +1,22 @@
+{
+    "jsonrpc": "2.0",
+    "method": "trigger.get",
+    "params": {
+        "output": [
+            "triggerid",
+            "description",
+            "priority"
+        ],
+	"functions": "date()",
+	"expandData": 1,
+	"expandDescription": 1,
+         
+	"hostids": [
+            "10105"
+        ],
+        "sortfield": "priority",
+        "sortorder": "DESC"
+    },
+    "auth": "86e1845eb7677ba6959d036603e28c1f",
+    "id": 1
+}

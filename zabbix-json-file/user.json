@@ -1,0 +1,16 @@
+{
+   "jsonrpc": "2.0",
+   "method": "host.create",
+   "params": {
+      "host": "My first host name",
+      "ip": "192.168.3.1",
+      "port": 10050,
+      "useip": 1,
+      "groups": [
+         {
+            "groupid": 50
+         }
+      ]
+   },
+   "id": 1
+}
