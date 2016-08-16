@@ -1,0 +1,32 @@
+{
+	"jsonrpc": "2.0",
+	"method": "action.create",
+	"params": {
+		"name": "Registration action",
+		"eventsource": 2,
+		"status": 0,
+		"esc_period": 0,
+		"filter": {
+			"evaltype": 0,
+			"conditions": [{
+				"conditiontype": 24,
+				"operator": 2,
+				"value": "application"
+			}]
+		},
+		"operations": [{
+			"esc_step_from": 1,
+			"esc_period": 0,
+			"operationtype": 4,
+			"esc_step_to": 1,
+                        "opgroup": [
+                        {
+                            "groupid": "4"
+                        }
+                    ]
+
+		}]
+	},
+	"auth": "88db432cd6b536300b4e34b32d182934",
+	"id": 1
+}

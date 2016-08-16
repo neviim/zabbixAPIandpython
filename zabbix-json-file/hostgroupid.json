@@ -1,0 +1,10 @@
+{
+    "jsonrpc": "2.0",
+    "method": "hostgroup.get",
+    "params": {
+        "output": ["name", "groupid"]
+    },
+    "auth": "88db432cd6b536300b4e34b32d182934",
+    "id": 1
+}
+
