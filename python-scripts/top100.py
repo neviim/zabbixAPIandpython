@@ -1,15 +1,11 @@
 from pyzabbix import ZabbixAPI
+from config import *
 
 # The hostname at which the Zabbix web interface is available
-ZABBIX_SERVER = 'http://10.0.132.171:8080/zabbix'
-
-zapi = ZabbixAPI(ZABBIX_SERVER)
+zapi = ZabbixAPI(url=server, user=username, password=password)
 
 # Disable SSL certificate verification
 zapi.session.verify = False
-
-# Login to the Zabbix API
-zapi.login('Admin', 'zabbix')
 
 # Loop through all hosts interfaces, getting only "main" interfaces of type "agent"
 for h in zapi.trigger.get(output=["triggerid","description","priority"],expandData="1",expandDescription="1",lastChangeSince="1470737192",sortfield="priority",sortorder="DESC"):

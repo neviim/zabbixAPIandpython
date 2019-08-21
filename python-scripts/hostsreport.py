@@ -23,14 +23,13 @@ with open("config.yml", 'r') as ymlfile:    #reading config.yml for credentails
 ZABBIX_SERVER = cfg['zabbix']['server']
 USERNAME = cfg['zabbix']['user']
 PASSWD = cfg['zabbix']['passwd']
-zabbixServer = ZabbixAPI(ZABBIX_SERVER)
+
+zabbixServer = ZabbixAPI(url=ZABBIX_SERVER, user=USERNAME, password=PASSWD)
 count = 0
 
 # Disable SSL certificate verification
 zabbixServer.session.verify = False
 
-# Login to the Zabbix API
-zabbixServer.login(USERNAME, PASSWD)
 
 def epoctime( dateCurrent ):
    "this will convert date to epoc"
@@ -96,13 +95,14 @@ def main(argv):
    parser.add_argument("-f", "--fromdate",required=True, help="from date")
    parser.add_argument("-t", "--todate",required=True, help="to date")
    parser.add_argument("-a", "--host", help="host based report", action="store_true")
-   parser.add_argument("-s", "--summary", help="increase output verbosity",
-                    action="store_true")
+   parser.add_argument("-s", "--summary", help="increase output verbosity", action="store_true")
+
    args = parser.parse_args()
    fromTime = args.fromdate
    toTime = args.todate
    summ = args.summary
    hosts = args.host
+
    if (args.host) and (args.summary):
        newfrom=epoctime(fromTime)
        newto=epoctime(toTime)

@@ -1,17 +1,21 @@
 import socket
+import yaml
+
 from getpass import getpass
 from pyzabbix import ZabbixAPI, ZabbixAPIException
 
-# The hostname at which the Zabbix web interface is available
-ZABBIX_SERVER = 'http://10.0.132.171:8080/zabbix'
+with open("config.yml", 'r') as ymlfile:    #reading config.yml for credentails
+    cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
 
-zapi = ZabbixAPI(ZABBIX_SERVER)
+ZABBIX_SERVER = cfg['zabbix']['server']
+USERNAME = cfg['zabbix']['user']
+PASSWD = cfg['zabbix']['passwd']
+
+zapi = ZabbixAPI(url=ZABBIX_SERVER, user=USERNAME, password=PASSWD)
+count = 0
 
 # Disable SSL certificate verification
 zapi.session.verify = False
-
-# Login to the Zabbix API
-zapi.login('Admin', 'zabbix')
 
 # Loop through all hosts interfaces, getting only "main" interfaces of type "agent"
 for h in zapi.hostinterface.get(output=["dns","ip","useip","hostid"],selectHosts=["host"],filter={"main":1,"type":1}):
@@ -42,6 +46,8 @@ for h in zapi.hostinterface.get(output=["dns","ip","useip","hostid"],selectHosts
         # Set the host's IP field to match what the DNS lookup said it should
         # be
         try:
-            zapi.hostinterface.update(interfaceid=h['interfaceid'], ip=actual_ip)
+            #zapi.hostinterface.update(interfaceid=h['interfaceid'], ip=actual_ip)
+            print(h['interfaceid'], " ", actual_ip)
+            
         except ZabbixAPIException as e:
             print(e)
